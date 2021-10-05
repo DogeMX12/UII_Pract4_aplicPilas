@@ -59,7 +59,7 @@ public class UII_Pract4_aplicPilas {
     	System.out.println("*Escribe una expresión algebraica: ");
     	opArit=obj.objLeer.leer("");
 	
-    		objPila.push(pila,MAX);
+
  			
     	break;
     case 2: //posfijo a infijo
