@@ -43,10 +43,10 @@ public class UII_Pract4_aplicPilas {
     	Pila objPila= new Pila();
     	Vector objVec= new Vector();
     	int MAX=0,res=0,res2=0;
+	String opArit="";
     	
-    	System.out.println ("Cuantos elementos son?");
-    	MAX=obj.objLeer.leer(0);
-    	
+    	/*System.out.println ("Cuantos elementos son?");
+    	MAX=obj.objLeer.leer(0);*/    	
     	String pila[]=new String [MAX];
     	
 	
@@ -55,12 +55,19 @@ public class UII_Pract4_aplicPilas {
 		switch (res) {
     case 1: //Infijo a posfijo
     	    System.out.println ("\n INFIJO A POSFIJO \n");
- 			
+	 //Entrada de datos
+    	System.out.println("*Escribe una expresión algebraica: ");
+    	opArit=obj.objLeer.leer("");
+	
     		objPila.push(pila,MAX);
  			
     	break;
     case 2: //posfijo a infijo
     	    System.out.println ("\n** POSFIJO A INFIJO **\n");
+	     //Entrada de datos
+    		System.out.println("*Escribe una expresión algebraica: ");
+		opArit=obj.objLeer.leer("");
+
     		objPila.pop(pila,true);
     	break;
     case 3: //Pila compartida
