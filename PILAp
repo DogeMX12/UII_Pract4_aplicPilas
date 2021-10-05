@@ -1,0 +1,114 @@
+/**
+ * @(#)Pila.java
+* Plantilla Pila
+ *
+ * E.D. GPO. A
+ *	
+ * @author ALFONSO TRUJILLO REYES
+ * @version 1.00 2021/9/21
+ */
+
+package arrays;
+import lecturas.*;
+import java.io.*;
+
+public class Pila {
+//------------------------ VARIABLES MIEMBROS O DE INSTANCIA -----------------------------------//	
+ public int tope=-1, i=0;
+ LeerDato objeto = new LeerDato();
+ String dato="";
+ 
+ 
+ //------------------------ CONSTRUCTORES -----------------------------------//
+    //PUSH / INSERCI�N
+    
+    public void push(String pila[],int MAX)throws IOException{
+        if(tope<MAX-1){
+            System.out.println("Ingrese el valor a insertar");
+            pila[++tope] = objeto.leer("");//++tope sustituye a tope+=1
+        }
+        else 
+            System.out.println("\n\n PILA LLENA!!\n\n");//OVERFLOW
+        
+    }
+    //POP / ELIMINACI�N
+    
+    public void pop(String pila[], boolean bandera)throws IOException{
+        if(tope>-1){
+            System.out.println("\n\nEl dato "+pila[tope]+" fue eliminado!\n\n");
+            if(bandera){//bandera = true hace un pop fisico 
+                pila[tope]="";//omitir para POP l�gico
+            }     
+            --tope;
+        }
+        else 
+            System.out.println("\n\n PILA LLENA!!\n\n");//OVERFLOW
+        
+    }
+     //------------------------ POP PILA AUXILIAR -----------------------------------//
+      public void pop_pila_aux(String pila[],int MAX)throws IOException{
+		String aux[]=new String[MAX];
+		int t=-1;
+        if(tope!=1){
+            System.out.println("\n\nIngrese el dato a eliminar\n\n");
+            dato=objeto.leer("");
+            if(pila[tope].equalsIgnoreCase(dato))
+            	pop(pila,true);
+            	else{
+            		while ((tope!=-1)&&(pila[tope].compareToIgnoreCase(dato)!=0)){
+            		//while ((tope!=-1)&&!(pila[tope].equalsIgnoreCase(dato)!=0)){
+            			//t=t+1;
+            			aux[++t]=pila[tope];
+            			pila[tope]="";
+            			--tope;//tope=tope-1;
+            			if(tope==-1)
+            				break;
+            		}
+            		if(tope==-1){
+            		
+            			 System.out.println("\n\nNO existe el dato "+dato+"!\n\n");
+            			 tope=0;
+            		}
+            			 while (t!=-1){
+            			 	pila[tope]=aux[t];
+            			 	aux[t]="";
+            			 	t=t-1;
+            			 	if(t!=-1)
+            			 		tope=tope+1;
+            			 }
+            	}
+        
+    }
+    else
+    	 
+            System.out.println("\n\n PILA VACIA!!\n\n");
+      }
+      //------------------------ POP CORRIMIENTOS-----------------------------------//
+      public void pop_corrimiento(String pila[])throws IOException{
+      	if(tope!=-1){
+            System.out.println("\n\nIngrese el dato a eliminar\n\n");
+            dato=objeto.leer("");
+            if(pila[tope].equalsIgnoreCase(dato))
+            	pop(pila,true);
+            	else{
+            		i=tope;
+            		while((i!=-1)&&(pila[i].compareToIgnoreCase(dato)!=0))
+            		--i;
+            		if(i==-1)
+            			   System.out.println("\n\nNO existe el dato "+dato+"!\n\n");
+            			   else{
+            			   
+            			   	while(i!=tope){
+            			   		pila[i]=pila[i+1];
+            			   ++i;
+            			   	}
+            			   pila[tope--]="";
+            			   System.out.println("\n\nEl dato "+dato+" fue eliminado!\n\n");
+            			   }
+            		}
+      }
+      else
+      	System.out.println("\n\n PILA VACIA!!\n\n");
+    
+}
+}
