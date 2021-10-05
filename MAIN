@@ -1,0 +1,52 @@
+/**
+ * @(#)UII_Pract4_aplicPilas.java
+ *
+ * UII_Pract4_aplicPilas application
+ *
+ * @author Alfonso Trujillo Reyes
+ * @version 1.00 2021/10/5
+ */
+
+package misPlantillas;
+import lecturas.*;
+import arrays.*;
+import java.io.*; 
+public class UII_Pract4_aplicPilas {
+ //------------------------ MIEMBRO -----------------------------------//	
+			public UII_Pract4_aplicPilas(){
+			};	
+ //------------------------ CONTRUCTOR -----------------------------------//
+	    	LeerDato objLeer = new LeerDato();
+		
+ //------------------------ MENU -----------------------------------//		
+		public int menu(int res)throws IOException{
+		do{
+		System.out.println("\n*** MENU PILA ***\n");
+		System.out.println("ELIGE UNA OPCION");
+		System.out.println("1.- INFIJO A POSFIJO");
+		System.out.println("2.- POSFIJO A INFIJO");
+		System.out.println("3.- COMPARTIDA");
+		System.out.println("4.- IMPRIMIR LA PILA");
+		System.out.println("5.- IMPRIMIR EL ARREGLO");
+		System.out.println("6.- Salir");
+		System.out.println("\n ELIGE UNA OPCION");
+		res=objLeer.leer(0);
+		if((res<1)||(res>6)){
+			System.out.println ("OPCION INVALIDA");
+		}
+		}while((res<1)||(res>6));
+		return res;
+	}    
+    public static void main(String[] args) {
+    	UII_Pract4_aplicPilas obj=new UII_Pract4_aplicPilas();
+    	Pila objPila= new Pila();
+    	Vector objVec= new Vector();
+    	int MAX=0,res=0,res2=0;
+    	
+    	System.out.println ("Cuantos elementos son?");
+    	MAX=obj.objLeer.leer(0);
+    	
+    	String pila[]=new String [MAX];
+    	
+    }
+}
