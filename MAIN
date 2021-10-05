@@ -12,10 +12,10 @@ import lecturas.*;
 import arrays.*;
 import java.io.*; 
 public class UII_Pract4_aplicPilas {
- //------------------------ MIEMBRO -----------------------------------//	
+ //------------------------ CONSTRUCTOR -----------------------------------//	
 			public UII_Pract4_aplicPilas(){
 			};	
- //------------------------ CONTRUCTOR -----------------------------------//
+ //------------------------ MIEMBRO -----------------------------------//
 	    	LeerDato objLeer = new LeerDato();
 		
  //------------------------ MENU -----------------------------------//		
@@ -36,7 +36,8 @@ public class UII_Pract4_aplicPilas {
 		}
 		}while((res<1)||(res>6));
 		return res;
-	}    
+	}//fin menu    
+ //------------------------ MAIN -----------------------------------//		
     public static void main(String[] args) {
     	UII_Pract4_aplicPilas obj=new UII_Pract4_aplicPilas();
     	Pila objPila= new Pila();
@@ -48,5 +49,42 @@ public class UII_Pract4_aplicPilas {
     	
     	String pila[]=new String [MAX];
     	
-    }
+	
+    	do{
+    	res=obj.menu(res);
+		switch (res) {
+    case 1: //Infijo a posfijo
+    	    System.out.println ("\n INFIJO A POSFIJO \n");
+ 			
+    		objPila.push(pila,MAX);
+ 			
+    	break;
+    case 2: //posfijo a infijo
+    	    System.out.println ("\n** POSFIJO A INFIJO **\n");
+    		objPila.pop(pila,true);
+    	break;
+    case 3: //Pila compartida
+    	System.out.println ("\n** PILA COMPARTIDA **\n");
+    		objPila.pop(pila,false);
+    	break;
+    case 4: 
+    	//imprimir pila
+    	if(objPila.tope!=1){
+    	    	System.out.println ("IMPRIMIR PILA");
+    	System.out.println ("\nLos elementos de la pila son:\n ");
+    		objVec.imprimir(pila,"PILA",objPila.tope,0);
+    		}else{
+    		System.out.println ("pila esta vacia");
+    	}
+    	break;
+    case 5: 
+    	System.out.println ("IMPRIMIR VECTOR");
+    	System.out.println ("\nLos elementos del vector son:\n ");
+    		objVec.imprimir(pila,"PILA",MAX);
+    	break;
+    default :
 }
+    	   }while(res!=6);
+	
+    }//fin Main
+}//fin
