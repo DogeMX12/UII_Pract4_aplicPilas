@@ -18,8 +18,94 @@ public class Pila {
  LeerDato objeto = new LeerDato();
  String dato="";
  
- 
- //------------------------ CONSTRUCTORES -----------------------------------//
+      //------------------------ PRACTICA 4 -----------------------------------//
+      //------------------------ INFIJO A POSFIJO -----------------------------------//    
+	 Hacer tope = -1
+2. Repetir mientras EI != cadena vacía
+Tomar el símbolo más a la izquierda
+de EI, recortándo la expresión.
+2.1 Si el símbolo = ‘(‘ entonces
+Hacer tope=tope+1 y 
+PILA[tope] = símbolo
+De lo contrario
+2.1.1 Si símbolo = ‘)’ entonces
+2.1.1.1 Repetir mientras
+PILA[tope] !=‘(’
+Hacer EPOS = PILA[tope]
+PILA[tope]<- ‘ ’ y tope=tope-1
+2.1.1.2 Fin del 2.1.1.1
+//Sacar el ‘(‘ de PILA sin agregar a 
+EPOS
+Hacer PILA[tope]<- ‘ ’ ,tope=tope-1
+De lo contrario
+2.1.1.3 Si símbolo es un operando
+entonces
+EPOS=símbolo
+de lo contrario //es un operador
+2.1.1. A Repetir mientras tope>-1 
+y PILA[tope]!=‘(‘ y la prioridad
+del operador <= la prioridad de 
+PILA[tope]
+Hacer EPOS=EPOS+PILA[tope], 
+PILA[tope]<- ‘ ’ y tope=tope-1
+2.1.1.3.B fin del 2.1.1.3.A
+3. Hacer tope=tope+1 y 
+PILA[tope]=símbolo
+2.1.1.4 Fin del 2.1.1.3
+2.1.2 Fin del 2.1.1
+2.2 Fin del 2.1
+3. fin del 2
+4. Repetir mientras tope>-1
+Hacer EPOS=EPOS+PILA[tope]
+PILA[tope]<- ‘ ’ y tope=tope-1
+5. Fin del 4
+6. Imprimir EPOS
+
+      //------------------------ POSFIJO A INFIJO -----------------------------------//    
+
+1. Hacer tope = -1
+2. Repetir mientras EI != cadena vacía
+Tomar el símbolo más a la derecha
+de EI, recortándo la expresión.
+2.1 Si el símbolo = ‘)‘ entonces
+Hacer tope=tope+1 y 
+PILA[tope] = símbolo
+De lo contrario
+2.1.1 Si símbolo = ‘(’ entonces
+2.1.1.1 Repetir mientras
+PILA[tope] !=‘)’
+Hacer EPRE= EPRE+PILA[tope], 
+PILA[tope]=‘ ‘ y tope=tope-1
+2.1.1.2 Fin del 2.1.1.1
+//Sacar el ‘)‘ de PILA sin agregar a 
+EPRE
+Hacer tope=tope-1
+De lo contrario
+2.1.1.3 Si símbolo es un operando
+entonces
+EPRE = EPRE + símbolo
+de lo contrario //es un operador
+2.1.1.3.A Repetir mientras tope>-1 
+y PILA[tope]!=‘)‘ y la prioridad
+del operador < la prioridad del
+operador en PILA[tope]
+Hacer EPRE=EPRE+PILA[tope], 
+PILA[tope]=‘ ‘ y tope=tope-1
+2.1.1.3.B fin del 2.1.1.3.A
+Hacer tope=tope+1 y 
+PILA[tope]=símbolo
+2.1.1.4 Fin del 2.1.1.3
+2.1.2 Fin del 2.1.1
+2.2 Fin del 2.1
+3. fin del 2
+4. Repetir mientras tope>-1
+Hacer EPRE=EPRE+PILA[tope], 
+PILA[tope]=‘ ‘ y tope=tope-1
+5. Fin del 4
+6. Imprimir EPRE en forma invertida
+
+
+ //------------------------ PILA INSERCION -----------------------------------//
     //PUSH / INSERCI�N
     
     public void push(String pila[],int MAX)throws IOException{
